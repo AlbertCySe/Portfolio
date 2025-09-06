@@ -57,3 +57,210 @@ body {
     --transition-duration: 300ms;
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--gray-800);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--gray-600);
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ===== Gradient Classes ===== */
+.blue-gradient {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)) !important;
+}
+.purple-gradient {
+    background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink)) !important;
+}
+.pink-gradient {
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-red)) !important;
+}
+.red-gradient {
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange)) !important;
+}
+
+/* ===== Utility Classes ===== */
+.hidden {
+    display: none !important;
+}
+.text-center {
+    text-align: center;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    color: var(--gray-700);
+    font-weight: 500;
+    transition: all var(--transition-duration) var(--transition-timing);
+    white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--blue-50);
+    color: var(--primary-blue);
+}
+
+.mobile-menu-button {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu-button i {
+    font-size: 1.5rem;
+    color: var(--gray-700);
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://readdy.ai/api/search-image?query=Modern%20professional%20workspace%20with%20clean%20minimal%20design%2C%20soft%20lighting%2C%20abstract%20geometric%20patterns%2C%20tech-inspired%20background%20with%20subtle%20blue%20and%20white%20tones%2C%20contemporary%20office%20environment%20with%20floating%20elements%2C%20sophisticated%20digital%20atmosphere&width=1920&height=1080&seq=hero1&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(139, 92, 246, 0.6) 100%);
+}
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 1.5rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+.hero-inner {
+    animation: fadeInUp 1s ease-out;
+}
+.hero-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.animate-fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.hero-subtitle {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    color: #bfdbfe;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Continue migrating all remaining CSS from index.html to styles.css. */
+/* This includes section styles, about, skills, education, experience, projects, contact, footer, animations, and responsive design. */
